@@ -31,8 +31,3 @@
 </p>
 
 :warning: Para utilizar os serviços, é necessário a criação de uma conta junto a Unimake para a obtenção dos tokens de acesso e as chaves da aplicação.
-
-<div style="display: flex; align-items: center;">
-    Precisa de mais informações?&nbsp;&nbsp;
-    <a aria-label="Fale conosco" href="https://api.whatsapp.com/send/?phone=554430171247&text=Quero+falar+sobre+a+integra%C3%A7%C3%A3o+do+meu+sistema+com+o+Unimake.MessageBroker.&type=phone_number&app_absent=0" target="_blank"><img alt="Fale conosco" src="https://unimake-cdn.s3.sa-east-1.amazonaws.com/WhatsAppButtonGreenSmall.svg" /> </a>
-</div>
