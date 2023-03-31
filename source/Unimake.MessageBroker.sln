@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unimake.MessageBroker", "Unimake.MessageBroker\Unimake.MessageBroker.csproj", "{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0E3573F5-1D88-4141-87C2-D885D922080A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{461FBAD0-7AFD-410C-9908-92AFC6F3DB7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unimake.MessageBroker.Test", "Unimake.MessageBroker.Test\Unimake.MessageBroker.Test.csproj", "{57C01E50-EB3A-40E4-8BB7-A151F2161736}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_Unimake|Any CPU = Debug_Unimake|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Debug_Unimake|Any CPU.ActiveCfg = Debug_Unimake|Any CPU
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Debug_Unimake|Any CPU.Build.0 = Debug_Unimake|Any CPU
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Debug_Unimake|Any CPU.ActiveCfg = Debug_Unimake|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Debug_Unimake|Any CPU.Build.0 = Debug_Unimake|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62C4BB7F-FEA5-4176-9E22-B3E4CC69E8A2} = {0E3573F5-1D88-4141-87C2-D885D922080A}
+		{57C01E50-EB3A-40E4-8BB7-A151F2161736} = {461FBAD0-7AFD-410C-9908-92AFC6F3DB7C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CBF7691-8E49-4523-AC48-6966427C07C1}
+	EndGlobalSection
+EndGlobal

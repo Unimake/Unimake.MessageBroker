@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net5.0;;net6.0</TargetFrameworks>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<Configurations>Debug;Release;Debug_Unimake</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Unimake.AuthServer" Version="20230331.1153.17" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230331.1222.37" />
+	</ItemGroup>
+
+</Project>
