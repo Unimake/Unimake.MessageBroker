@@ -1,6 +1,5 @@
 ﻿using EBank.Solutions.Primitives.Debug;
 using System;
-using System.Collections.Generic;
 using System.Http;
 using System.Net.Http;
 using System.Text;
@@ -15,7 +14,9 @@ namespace Unimake.MessageBroker.Client
         #region Private Fields
 
         private readonly AuthenticatedScope authenticatedScope;
+
         private readonly HttpClient client = new HttpClient();
+
         private QueryString _queryString;
 
         #endregion Private Fields
@@ -32,6 +33,12 @@ namespace Unimake.MessageBroker.Client
         {
             client.DefaultRequestHeaders.Remove("Authorization");
             client.DefaultRequestHeaders.Add("Authorization", $"{authenticatedScope.Type} {authenticatedScope.Token}");
+
+            if(!string.IsNullOrEmpty(PublicKey))
+            {
+                client.DefaultRequestHeaders.Remove("U-Public-Key");
+                client.DefaultRequestHeaders.Add("U-Public-Key", PublicKey);
+            }
         }
 
         private async Task<HttpResponseMessage> PostAsync(string json)
@@ -59,17 +66,24 @@ namespace Unimake.MessageBroker.Client
         #region Public Properties
 
         public string Action { get; }
+
+        /// <summary>
+        /// Chave pública utilizada para analisar o token para download de boletos, quando emitidos pelo e-Bank
+        /// </summary>
+        public string PublicKey { get; set; }
+
         public QueryString QueryString { get => _queryString ?? (_queryString = new QueryString()); }
 
         #endregion Public Properties
 
         #region Public Constructors
 
-        public APIClient(AuthenticatedScope scope, string action, QueryString queryString = null)
+        public APIClient(AuthenticatedScope scope, string action, QueryString queryString = null, string publicKey = null)
         {
             authenticatedScope = scope ?? throw new ArgumentNullException(nameof(scope));
             Action = action;
             _queryString = queryString;
+            PublicKey = publicKey;
         }
 
         #endregion Public Constructors

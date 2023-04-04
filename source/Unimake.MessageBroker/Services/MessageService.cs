@@ -14,6 +14,21 @@ namespace Unimake.MessageBroker.Services
     /// </summary>
     public class MessageService
     {
+        #region Public Properties
+
+        public string PublicKey { get; private set; }
+
+        #endregion Public Properties
+
+        #region Public Constructors
+
+        public MessageService(string publicKey)
+        {
+            PublicKey = publicKey;
+        }
+
+        #endregion Public Constructors
+
         #region Public Methods
 
         /// <summary>
@@ -25,7 +40,7 @@ namespace Unimake.MessageBroker.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<MessageResponse> NotifyBilletAsync(BilletNotification billetNotification, AuthenticatedScope authenticatedScope)
         {
-            var apiClient = new APIClient(authenticatedScope, $"Messages/NotifyBillet");
+            var apiClient = new APIClient(authenticatedScope, $"Messages/NotifyBillet", publicKey: PublicKey);
             var response = await apiClient.PostAsync(billetNotification);
             var json = await response.Content.ReadAsStringAsync();
 

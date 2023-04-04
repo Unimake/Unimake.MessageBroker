@@ -5,11 +5,24 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<Configurations>Debug;Release;Debug_Unimake</Configurations>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>Unimake.MessageBroker</PackageId>
+		<Title>Unimake.MessageBroker</Title>
+		<Authors>Unimake</Authors>
+		<Company>Unimake</Company>
+		<Product>Unimake.MessageBroker</Product>
+		<Description>Pacote de envio de mensagens, SNS e notificações via WhatsApp, Messenger, e-mail. Entre outros serviços de mensagens.</Description>
+		<Copyright>Unimake 2023</Copyright>
+		<PackageProjectUrl>https://unimake.app/mb</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
+		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
+		<AssemblyVersion>2023.04.03.1520</AssemblyVersion>
+		<Version>20230403.1520.45</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Unimake.AuthServer" Version="20230331.1153.17" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230331.1222.37" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230403.1220.45" />
 	</ItemGroup>
 
 </Project>
