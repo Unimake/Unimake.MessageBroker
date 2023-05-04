@@ -28,7 +28,7 @@ namespace Unimake.MessageBroker.Test
                     ("billet", boletoId)
                 };
 
-            var linkSigned = LinkSigner.SignLink("", "unimake", "billet", claims, PublicKey);
+            var linkSigned = LinkSigner.SignLink("unimake", "billet", claims, PublicKey);
 
             return linkSigned;
         }
@@ -70,4 +70,4 @@ namespace Unimake.MessageBroker.Test
 
         #endregion Public Methods
     }
-} 
+}

@@ -1,8 +1,7 @@
-﻿using EBank.Solutions.Primitives.Debug;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Unimake.AuthServer.Authentication;
 using Unimake.AuthServer.Security.Scope;
-using Unimake.Debug;
+using Unimake.Primitives.UDebug;
 using Xunit.Abstractions;
 using static Newtonsoft.Json.JsonConvert;
 using AuthenticationService = Unimake.MessageBroker.Services.Security.AuthenticationService;
@@ -45,7 +44,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
         protected void StartServerDebugMode() => debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
         {
             AuthServerUrl = "https://localhost:44386/api/auth/",
-            EBankServerUrl = "http://localhost:58295/api/v1/"
+            AnotherServerUrl = "http://localhost:58295/api/v1/"
         });
 
 #else

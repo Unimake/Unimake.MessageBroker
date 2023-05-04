@@ -1,8 +1,8 @@
-﻿using EBank.Solutions.Primitives.Exceptions;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Unimake.AuthServer.Security.Scope;
 using Unimake.MessageBroker.Client;
+using Unimake.MessageBroker.Primitives.Exceptions;
 using Unimake.MessageBroker.Primitives.Model.Messages;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
 using static Newtonsoft.Json.JsonConvert;
