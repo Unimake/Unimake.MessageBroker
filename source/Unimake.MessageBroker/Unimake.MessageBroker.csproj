@@ -16,13 +16,13 @@
 		<PackageProjectUrl>https://unimake.app/mb</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
-		<AssemblyVersion>2023.05.03.1527</AssemblyVersion>
-		<Version>20230503.1527.16</Version>
+		<AssemblyVersion>2023.05.09.0903</AssemblyVersion>
+		<Version>20230509.0903.26</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20230503.1527.16" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230503.1527.16" />
+		<PackageReference Include="Unimake.AuthServer" Version="20230509.903.26" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230509.903.26" />
 	</ItemGroup>
 
 </Project>
