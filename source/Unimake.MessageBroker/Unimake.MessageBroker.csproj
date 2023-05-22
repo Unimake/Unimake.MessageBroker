@@ -18,11 +18,22 @@
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
 		<AssemblyVersion>2023.05.09.0903</AssemblyVersion>
 		<Version>20230509.0903.26</Version>
+		<ApplicationIcon>logo64x64.ico</ApplicationIcon>
+		<PackageIcon>logo128x128.png</PackageIcon>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Content Include="logo64x64.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\resource\Image\logo128x128.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Unimake.AuthServer" Version="20230509.903.26" />
 		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230509.903.26" />
 	</ItemGroup>
-
 </Project>
