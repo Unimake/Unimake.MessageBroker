@@ -57,6 +57,7 @@ namespace Unimake.MessageBroker.Client
             {
                 return "";
             }
+
             return QueryString.ToString(urlEncodeValue: false);
         }
 

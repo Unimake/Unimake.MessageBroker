@@ -5,16 +5,11 @@ using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Unimake.MessageBroker.Test
+namespace Unimake.MessageBroker.Test.Billet
 {
     public class BilletNotificationTest : TestBase
     {
         #region Private Fields
-
-        // A chave gerada é uma chave aleatória gerada no site https://codebeautify.org/hmac-generator
-        // Esta chave deve ser informada no cabeçalho  U-Public-Key para que a API saiba qual chave usar
-        // A chave é livre, pública e você pode gerar como quiser.
-        private const string PublicKey = "25e847391c25263a8d5758c0a416170d321dcfc2ca3148e109bf2675519c70fa";
 
         #endregion Private Fields
 
@@ -60,11 +55,13 @@ namespace Unimake.MessageBroker.Test
                 ContactPhone = "DDD<<telefone>>",
                 CustomerName = "Marcelo",
                 Description = "Descritivo 1 Descritivo 2 N",
-                DueDate = "01/01/2022",
+                DueDate = "31/12/2050",
                 QueryString = linkSigned,
                 To = "DDD<<telefone>>",
-                Value = "R$ 250,00"
+                Value = "R$ 250,00",
+                Testing = true
             }, scope);
+
             DumpAsJson(response);
         }
 

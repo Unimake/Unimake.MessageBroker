@@ -12,9 +12,9 @@ namespace Unimake.MessageBroker.Test.Abstractions
     {
         #region Private Fields
 
+        private static DebugScope<DebugStateObject> debugScope;
         private readonly ITestOutputHelper output;
         private JsonSerializerSettings _jsonSettings;
-        private static DebugScope<DebugStateObject> debugScope;
 
         #endregion Private Fields
 
@@ -30,6 +30,12 @@ namespace Unimake.MessageBroker.Test.Abstractions
 
         #endregion Private Properties
 
+        #region Protected Fields
+
+        protected const string PublicKey = "dDd3IXolQypGLUphTmRSZ1VqWG4ycjV1OHgvQT9EKEc=";
+
+        #endregion Protected Fields
+
         #region Protected Methods
 
         protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
@@ -39,17 +45,19 @@ namespace Unimake.MessageBroker.Test.Abstractions
                 Secret = "<<secretId>>"
             });
 
-#if DEBUG_UNIMAKE
-
-        protected void StartServerDebugMode() => debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
+        protected void StartServerDebugMode()
         {
-            AuthServerUrl = "https://localhost:44386/api/auth/",
-            AnotherServerUrl = "http://localhost:58295/api/v1/"
-        });
+#if DEBUG_UNIMAKE
+            debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
+            {
+                AuthServerUrl = "http://127.0.0.1/api/auth/",
+                AnotherServerUrl = "http://127.0.0.1/api/v1/"
+            });
 
 #else
-        protected void StartServerDebugMode() => debugScope = null;
+            debugScope = null;
 #endif
+        }
 
         #endregion Protected Methods
 
