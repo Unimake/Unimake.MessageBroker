@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Unimake.AuthServer.Security.Scope;
 using Unimake.MessageBroker.Client;
 using Unimake.MessageBroker.Model;
+using Unimake.MessageBroker.Primitives.Contract.Messages;
 using Unimake.MessageBroker.Primitives.Exceptions;
 using Unimake.MessageBroker.Primitives.Model.Messages;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
@@ -99,6 +100,23 @@ namespace Unimake.MessageBroker.Services
             var apiClient = new APIClient(authenticatedScope, $"Messages/NotifyPIXCollection", publicKey: PublicKey);
             var response = await apiClient.PostAsync(notification);
             var json = await response.Content.ReadAsStringAsync();
+
+            if(response.IsSuccessStatusCode)
+            {
+                return DeserializeObject<MessageResponse>(json);
+            }
+
+            var errors = ExceptionObject.FromJson(json);
+            System.Diagnostics.Debug.WriteLine(errors.Message);
+            throw new Exception(errors.Message);
+        }
+
+        public async Task<MessageResponse> SendTextMessageAsync(IMessage message, AuthenticatedScope authenticatedScope)
+        {
+            var apiClient = new APIClient(authenticatedScope, $"Messages/Publish");
+            var response = await apiClient.PostAsync(message);
+            var json = await response.Content.ReadAsStringAsync();
+            System.Diagnostics.Debug.WriteLine(json);
 
             if(response.IsSuccessStatusCode)
             {

@@ -48,7 +48,7 @@ namespace Unimake.MessageBroker.Client
 
         private string PrepareURI()
         {
-            return $"{debugStateObject?.AnotherServerUrl ?? $"https://unimake.app/messenger/api/v1/"}{Action}{ToQueryString()}";
+            return $"{debugStateObject?.AnotherServerUrl ?? $"https://unimake.app/umessenger/api/v1/"}{Action}{ToQueryString()}";
         }
 
         private string ToQueryString()

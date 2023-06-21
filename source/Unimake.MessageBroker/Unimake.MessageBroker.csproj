@@ -13,11 +13,11 @@
 		<Product>Unimake.MessageBroker</Product>
 		<Description>Pacote de envio de mensagens, SNS e notificações via WhatsApp, Messenger, e-mail. Entre outros serviços de mensagens.</Description>
 		<Copyright>Unimake 2023</Copyright>
-		<PackageProjectUrl>https://unimake.app/mb</PackageProjectUrl>
+		<PackageProjectUrl>https://unimake.app/umessenger</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
-		<AssemblyVersion>2023.06.10.0950</AssemblyVersion>
-		<Version>20230610.0950.35</Version>
+		<AssemblyVersion>2023.06.20.1530</AssemblyVersion>
+		<Version>20230620.1530.10</Version>
 		<ApplicationIcon>logo64x64.ico</ApplicationIcon>
 		<PackageIcon>logo128x128.png</PackageIcon>
 	</PropertyGroup>
@@ -33,7 +33,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20230509.903.26" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230610.950.35" />
+		<PackageReference Include="Unimake.AuthServer" Version="20230613.918.2" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230620.1530.10" />
 	</ItemGroup>
 </Project>
