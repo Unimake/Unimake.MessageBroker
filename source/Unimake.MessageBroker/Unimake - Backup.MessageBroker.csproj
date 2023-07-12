@@ -17,7 +17,7 @@
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
 		<AssemblyVersion>2023.07.10.1719</AssemblyVersion>
-		<Version>20230710.1719.12</Version>
+		<Version>20230703.1027.02</Version>
 		<ApplicationIcon>logo64x64.ico</ApplicationIcon>
 		<PackageIcon>logo128x128.png</PackageIcon>
 	</PropertyGroup>
