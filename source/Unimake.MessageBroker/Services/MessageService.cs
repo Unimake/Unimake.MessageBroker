@@ -111,6 +111,23 @@ namespace Unimake.MessageBroker.Services
             throw new Exception(errors.Message);
         }
 
+        public async Task<MessageResponse> SendAlertAsync(AlertNotification alert, AuthenticatedScope authenticatedScope)
+        {
+            var apiClient = new APIClient(authenticatedScope, $"Messages/SendAlert");
+            var response = await apiClient.PostAsync(alert);
+            var json = await response.Content.ReadAsStringAsync();
+            System.Diagnostics.Debug.WriteLine(json);
+
+            if(response.IsSuccessStatusCode)
+            {
+                return DeserializeObject<MessageResponse>(json);
+            }
+
+            var errors = ExceptionObject.FromJson(json);
+            System.Diagnostics.Debug.WriteLine(errors.Message);
+            throw new Exception(errors.Message);
+        }
+
         public async Task<MessageResponse> SendTextMessageAsync(IMessage message, AuthenticatedScope authenticatedScope)
         {
             var apiClient = new APIClient(authenticatedScope, $"Messages/Publish");
