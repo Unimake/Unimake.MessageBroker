@@ -16,8 +16,8 @@
 		<PackageProjectUrl>https://unimake.app/umessenger</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
-		<AssemblyVersion>2023.08.23.1146</AssemblyVersion>
-		<Version>20230823.1146.19</Version>
+		<AssemblyVersion>2023.09.05.1023</AssemblyVersion>
+		<Version>20230905.1023.21</Version>
 		<ApplicationIcon>logo64x64.ico</ApplicationIcon>
 		<PackageIcon>logo128x128.png</PackageIcon>
 	</PropertyGroup>
@@ -33,7 +33,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20230823.1146.19" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230823.1146.19" />
+		<PackageReference Include="Unimake.AuthServer" Version="20230905.1023.21" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20230905.1023.21" />
 	</ItemGroup>
 </Project>
