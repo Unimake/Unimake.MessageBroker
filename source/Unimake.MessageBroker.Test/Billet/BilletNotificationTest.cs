@@ -49,17 +49,17 @@ namespace Unimake.MessageBroker.Test.Billet
             var linkSigned = SignLink(123456);
             var response = await service.NotifyBilletAsync(new BilletNotification
             {
-                BarCode = "65465464646554456453456453456544565445645345654435",
-                BilletNumber = "12345678",
-                CompanyName = "Unimake",
-                ContactPhone = "DDD<<telefone>>",
+                BarCode = "46354546534546345463454365454365454365454365454",
+                BilletNumber = "00001",
+                CompanyName = "fulano",
+                ContactPhone = "5511111111111",
                 CustomerName = "Marcelo",
-                Description = "Descritivo 1 Descritivo 2 N",
-                DueDate = "31/12/2050",
+                Description = "Mensalidade R$ 250,00",
+                DueDate = "10/12/2023",
                 QueryString = linkSigned,
-                To = "DDD<<telefone>>",
+                To = "5511111111112",
                 Value = "R$ 250,00",
-                Testing = true
+                Testing = false
             }, scope);
 
             DumpAsJson(response);

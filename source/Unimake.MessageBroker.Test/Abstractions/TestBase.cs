@@ -41,8 +41,8 @@ namespace Unimake.MessageBroker.Test.Abstractions
         protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
             await new AuthenticationService().AuthenticateAsync(new AuthenticationRequest
             {
-                AppId =  "<<appId>>",
-                Secret =  "<<appId>>"
+                AppId = "<<AppId>>",
+                Secret = "<<Secret>>"
             });
 
         protected void StartServerDebugMode()
@@ -50,7 +50,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
 #if DEBUG_UNIMAKE
             debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
             {
-                AuthServerUrl = "http://192.168.1.56:54469/api/auth/",
+                AuthServerUrl = "http://homolog.unimake.software:54469/api/auth/",
                 AnotherServerUrl = "http://192.168.1.56:58295/api/v1/"
             });
 
