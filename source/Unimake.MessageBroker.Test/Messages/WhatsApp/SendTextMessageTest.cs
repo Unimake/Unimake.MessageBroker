@@ -4,7 +4,7 @@ using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Unimake.MessageBroker.Test
+namespace Unimake.MessageBroker.Test.Messages.WhatsApp
 {
     public class SendTextMessageTest : TestBase
     {
@@ -23,7 +23,7 @@ namespace Unimake.MessageBroker.Test
         public async Task SendTextMessage()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService();
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
                 Text = "Olá! Eu sou uma mensagem de teste 🌜☠️",
@@ -33,7 +33,7 @@ namespace Unimake.MessageBroker.Test
                 }
             }, scope);
 
-            DumpAsJson(response);   
+            DumpAsJson(response);
         }
 
         #endregion Public Methods

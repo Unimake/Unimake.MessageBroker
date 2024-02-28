@@ -33,7 +33,7 @@ namespace Unimake.MessageBroker.Test.BugFix
                 Title = "UNINFE - Erro no envio documentos eletrônicos"
             };
 
-            var messageService = new MessageService();
+            var messageService = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             await messageService.SendAlertAsync(alertNotication, scope);
         }
     }

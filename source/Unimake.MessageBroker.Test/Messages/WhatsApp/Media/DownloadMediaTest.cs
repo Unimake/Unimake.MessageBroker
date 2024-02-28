@@ -5,7 +5,7 @@ using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Unimake.MessageBroker.Test
+namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Media
 {
     public class DownloadMediaTest : TestBase
     {
@@ -24,7 +24,7 @@ namespace Unimake.MessageBroker.Test
         public async Task DownloadMedia()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService();
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.DownloadMediaAsync(new DownloadMediaRequest
             {
                 MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,
@@ -52,7 +52,7 @@ namespace Unimake.MessageBroker.Test
             await Assert.ThrowsAsync<Exception>(async () =>
             {
                 using var scope = await CreateAuthenticatedScopeAsync();
-                var service = new MessageService();
+                var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
                 var response = await service.DownloadMediaAsync(new DownloadMediaRequest
                 {
                     MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,

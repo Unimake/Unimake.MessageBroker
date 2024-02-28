@@ -5,7 +5,7 @@ using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Unimake.MessageBroker.Test.Billet
+namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
 {
     public class BilletNotificationTest : TestBase
     {
@@ -45,7 +45,7 @@ namespace Unimake.MessageBroker.Test.Billet
         public async Task NotifyBillet()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService(PublicKey);
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp, PublicKey);
             var linkSigned = SignLink(123456);
             var response = await service.NotifyBilletAsync(new BilletNotification
             {

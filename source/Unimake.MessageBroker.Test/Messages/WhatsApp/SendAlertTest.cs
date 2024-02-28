@@ -4,7 +4,7 @@ using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Unimake.MessageBroker.Test
+namespace Unimake.MessageBroker.Test.Messages.WhatsApp
 {
     public class SendAlertTest : TestBase
     {
@@ -23,7 +23,7 @@ namespace Unimake.MessageBroker.Test
         public async Task SendAlert()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService();
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.SendAlertAsync(new AlertNotification
             {
                 Testing = true,

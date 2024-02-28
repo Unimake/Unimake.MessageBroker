@@ -34,6 +34,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Unimake.AuthServer" Version="20240126.1531.6" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20231124.1403.36" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20240223.1600.30" />
 	</ItemGroup>
 </Project>

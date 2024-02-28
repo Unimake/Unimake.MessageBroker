@@ -4,6 +4,7 @@ using Unimake.AuthServer.Security.Scope;
 using Unimake.MessageBroker.Client;
 using Unimake.MessageBroker.Model;
 using Unimake.MessageBroker.Primitives.Contract.Messages;
+using Unimake.MessageBroker.Primitives.Enumerations;
 using Unimake.MessageBroker.Primitives.Exceptions;
 using Unimake.MessageBroker.Primitives.Model.Messages;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
@@ -19,18 +20,22 @@ namespace Unimake.MessageBroker.Services
     {
         #region Public Properties
 
+        public MessagingService MessagingService { get; private set; }
+
         public string PublicKey { get; private set; }
 
         #endregion Public Properties
 
         #region Public Constructors
 
-        public MessageService(string publicKey)
+        public MessageService(MessagingService messagingService, string publicKey)
         {
             PublicKey = publicKey;
+            MessagingService = messagingService;
         }
 
-        public MessageService()
+        public MessageService(MessagingService messagingService)
+            : this(messagingService, "")
         {
         }
 
@@ -74,6 +79,7 @@ namespace Unimake.MessageBroker.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<MessageResponse> NotifyBilletAsync(BilletNotification billetNotification, AuthenticatedScope authenticatedScope)
         {
+            billetNotification.MessagingService = MessagingService;
             var apiClient = new APIClient(authenticatedScope, $"Messages/NotifyBillet", publicKey: PublicKey);
             var response = await apiClient.PostAsync(billetNotification);
             var json = await response.Content.ReadAsStringAsync();
@@ -97,6 +103,7 @@ namespace Unimake.MessageBroker.Services
         /// <exception cref="NotImplementedException"></exception>
         public async Task<MessageResponse> NotifyPIXCollectionAsync(PIXNotification notification, AuthenticatedScope authenticatedScope)
         {
+            notification.MessagingService = MessagingService;
             var apiClient = new APIClient(authenticatedScope, $"Messages/NotifyPIXCollection", publicKey: PublicKey);
             var response = await apiClient.PostAsync(notification);
             var json = await response.Content.ReadAsStringAsync();
@@ -113,6 +120,7 @@ namespace Unimake.MessageBroker.Services
 
         public async Task<MessageResponse> SendAlertAsync(AlertNotification alert, AuthenticatedScope authenticatedScope)
         {
+            alert.MessagingService = MessagingService;
             var apiClient = new APIClient(authenticatedScope, $"Messages/SendAlert");
             var response = await apiClient.PostAsync(alert);
             var json = await response.Content.ReadAsStringAsync();
@@ -130,6 +138,7 @@ namespace Unimake.MessageBroker.Services
 
         public async Task<MessageResponse> SendTextMessageAsync(IMessage message, AuthenticatedScope authenticatedScope)
         {
+            message.MessagingService = MessagingService;
             var apiClient = new APIClient(authenticatedScope, $"Messages/Publish");
             var response = await apiClient.PostAsync(message);
             var json = await response.Content.ReadAsStringAsync();
