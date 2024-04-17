@@ -22,7 +22,7 @@ namespace Unimake.MessageBroker.Client
 
         #region Private Properties
 
-        private static DebugStateObject debugStateObject => DebugScope<DebugStateObject>.Instance?.ObjectState;
+        private static DebugStateObject DebugStateObject => DebugScope<DebugStateObject>.Instance?.ObjectState;
 
         #endregion Private Properties
 
@@ -48,7 +48,7 @@ namespace Unimake.MessageBroker.Client
 
         private string PrepareURI()
         {
-            return $"{debugStateObject?.AnotherServerUrl ?? $"https://unimake.app/umessenger/api/v1/"}{Action}{ToQueryString()}";
+            return $"{DebugStateObject?.AnotherServerUrl ?? $"https://unimake.app/umessenger/api/v1/"}{Action}{ToQueryString()}";
         }
 
         private string ToQueryString()

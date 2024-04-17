@@ -35,7 +35,10 @@ namespace Unimake.MessageBroker.Validators
             }
         }
 
+#pragma warning disable IDE0060 // Remove unused parameter
+
         public static void Validate(this BilletNotification billetNotification)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
         }
 

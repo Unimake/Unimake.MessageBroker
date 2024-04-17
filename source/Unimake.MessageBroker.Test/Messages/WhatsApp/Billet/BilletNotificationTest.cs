@@ -9,13 +9,9 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
 {
     public class BilletNotificationTest : TestBase
     {
-        #region Private Fields
-
-        #endregion Private Fields
-
         #region Private Methods
 
-        private string SignLink(long boletoId)
+        private static string SignLink(long boletoId)
         {
             var claims = new List<(string Key, object Value)>
             {

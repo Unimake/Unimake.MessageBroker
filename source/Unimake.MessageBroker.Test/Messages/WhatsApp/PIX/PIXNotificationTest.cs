@@ -11,7 +11,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
     {
         #region Private Methods
 
-        private string SignLink(string qrCode)
+        private static string SignLink(string qrCode)
         {
             var claims = new List<(string Key, object Value)>
             {

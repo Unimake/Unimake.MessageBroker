@@ -45,7 +45,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
                 Secret = "<<Secret>>"
             });
 
-        protected void StartServerDebugMode()
+        protected static void StartServerDebugMode()
         {
 #if DEBUG_UNIMAKE
             debugScope = new DebugScope<DebugStateObject>(new DebugStateObject

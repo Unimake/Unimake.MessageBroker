@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;net5.0;;net6.0</TargetFrameworks>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<Configurations>Debug;Release;Debug_Unimake</Configurations>
@@ -16,8 +16,8 @@
 		<PackageProjectUrl>https://unimake.app/umessenger</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
-		<AssemblyVersion>2024.03.01.1809</AssemblyVersion>
-		<Version>20240301.1809.59</Version>
+		<AssemblyVersion>2024.04.16.0118</AssemblyVersion>
+		<Version>20240416.0118.07</Version>
 		<ApplicationIcon>logo64x64.ico</ApplicationIcon>
 		<PackageIcon>logo128x128.png</PackageIcon>
 	</PropertyGroup>
@@ -33,7 +33,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20240301.1809.59" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20240301.1809.59" />
+		<PackageReference Include="Unimake.AuthServer" Version="20240416.118.7" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20240416.118.7" />
 	</ItemGroup>
 </Project>
