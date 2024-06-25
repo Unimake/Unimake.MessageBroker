@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using Unimake.AuthServer.Authentication;
 using Unimake.AuthServer.Security.Scope;
+using Unimake.Primitives.Security.Credentials;
 using Unimake.Primitives.UDebug;
 using Xunit.Abstractions;
 using static Newtonsoft.Json.JsonConvert;
@@ -39,7 +39,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
         #region Protected Methods
 
         protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
-            await new AuthenticationService().AuthenticateAsync(new AuthenticationRequest
+            await new AuthenticationService().AuthenticateAsync(new AuthenticationToken
             {
                 AppId = "<<AppId>>",
                 Secret = "<<Secret>>"

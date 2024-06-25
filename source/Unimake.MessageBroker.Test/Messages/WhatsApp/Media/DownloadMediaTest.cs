@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using Unimake.MessageBroker.Primitives.Request;
+using Unimake.MessageBroker.Primitives.Model.Media;
 using Unimake.MessageBroker.Services;
 using Unimake.MessageBroker.Test.Abstractions;
 using Xunit;
@@ -25,7 +25,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Media
         {
             using var scope = await CreateAuthenticatedScopeAsync();
             var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
-            var response = await service.DownloadMediaAsync(new DownloadMediaRequest
+            var response = await service.DownloadMediaAsync(new DownloadMedia
             {
                 MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,
                 MediaId = "1231894790804182",
@@ -53,7 +53,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Media
             {
                 using var scope = await CreateAuthenticatedScopeAsync();
                 var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
-                var response = await service.DownloadMediaAsync(new DownloadMediaRequest
+                var response = await service.DownloadMediaAsync(new DownloadMedia
                 {
                     MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,
                     MediaId = "aaaaabbbbb00000",

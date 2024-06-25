@@ -6,9 +6,9 @@ using Unimake.MessageBroker.Model;
 using Unimake.MessageBroker.Primitives.Contract.Messages;
 using Unimake.MessageBroker.Primitives.Enumerations;
 using Unimake.MessageBroker.Primitives.Exceptions;
+using Unimake.MessageBroker.Primitives.Model.Media;
 using Unimake.MessageBroker.Primitives.Model.Messages;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
-using Unimake.MessageBroker.Primitives.Request;
 using static Newtonsoft.Json.JsonConvert;
 
 namespace Unimake.MessageBroker.Services
@@ -43,7 +43,7 @@ namespace Unimake.MessageBroker.Services
 
         #region Public Methods
 
-        public async Task<MediaResult> DownloadMediaAsync(DownloadMediaRequest request, AuthenticatedScope authenticatedScope)
+        public async Task<MediaResult> DownloadMediaAsync(DownloadMedia request, AuthenticatedScope authenticatedScope)
         {
             var apiClient = new APIClient(authenticatedScope, $"Messages/DownloadMedia", new System.Http.QueryString
             {

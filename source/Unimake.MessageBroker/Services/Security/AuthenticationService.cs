@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Unimake.AuthServer.Authentication;
 using Unimake.AuthServer.Security.Scope;
+using Unimake.Primitives.Security.Credentials;
 
 namespace Unimake.MessageBroker.Services.Security
 {
@@ -31,16 +31,16 @@ namespace Unimake.MessageBroker.Services.Security
         /// <returns></returns>
         public AuthenticatedScope Authenticate(string appId, string secret)
         {
-            return new AuthenticatedScope(new AuthenticationRequest
+            return new AuthenticatedScope(new AuthenticationToken
             {
                 AppId = appId,
                 Secret = secret
             });
         }
 
-        /// <inheritdoc cref="IAuthenticationService.AuthenticateAsync(AuthenticationRequest)"/>
+        /// <inheritdoc cref="IAuthenticationService.AuthenticateAsync(AuthenticationToken)"/>
         [ComVisible(false)]
-        public async Task<AuthenticatedScope> AuthenticateAsync(AuthenticationRequest credentials)
+        public async Task<AuthenticatedScope> AuthenticateAsync(AuthenticationToken credentials)
         {
             await Task.CompletedTask;
             return new AuthenticatedScope(credentials);

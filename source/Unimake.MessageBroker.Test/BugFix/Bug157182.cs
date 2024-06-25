@@ -8,10 +8,16 @@ namespace Unimake.MessageBroker.Test.BugFix
 {
     public class Bug157182 : TestBase
     {
+        #region Public Constructors
+
         public Bug157182(ITestOutputHelper output)
             : base(output)
         {
         }
+
+        #endregion Public Constructors
+
+        #region Public Methods
 
         [Fact]
         public async Task FixItAsync()
@@ -29,5 +35,7 @@ namespace Unimake.MessageBroker.Test.BugFix
             var messageService = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             await messageService.SendAlertAsync(alertNotication, scope);
         }
+
+        #endregion Public Methods
     }
 }
