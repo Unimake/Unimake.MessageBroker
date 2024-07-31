@@ -50,8 +50,8 @@ namespace Unimake.MessageBroker.Test.Abstractions
 #if DEBUG_UNIMAKE
             debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
             {
-                AuthServerUrl = "http://homolog.unimake.software:54469/api/auth/",
-                AnotherServerUrl = "http://homolog.unimake.software:58295/api/v1/"
+                AuthServerUrl = "https://auth.sandbox.unimake.software/api/auth/",
+                AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/"
             });
 
 #else

@@ -146,7 +146,9 @@ namespace Unimake.MessageBroker.Services
 
             if(response.IsSuccessStatusCode)
             {
-                return DeserializeObject<MessageResponse>(json);
+                var result = DeserializeObject<MessageResponse>(json);
+                result.StatusCode = (int)response.StatusCode;
+                return result;
             }
 
             var errors = ExceptionObject.FromJson(json);
