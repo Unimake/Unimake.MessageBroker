@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Http;
+using System.Net;
 using System.Net.Http;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Unimake.AuthServer.Security.Scope;
@@ -26,7 +29,19 @@ namespace Unimake.MessageBroker.Client
 
         #endregion Private Properties
 
+        #region Private Constructors
+
+        private APIClient()
+        {
+            ServicePointManager.Expect100Continue = false;
+            ServicePointManager.ServerCertificateValidationCallback += certificateValidationCallback;
+        }
+
+        #endregion Private Constructors
+
         #region Private Methods
+
+        private bool certificateValidationCallback(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslPolicyErrors) => true;
 
         private void EnsureAuthorization()
         {
@@ -79,6 +94,7 @@ namespace Unimake.MessageBroker.Client
         #region Public Constructors
 
         public APIClient(AuthenticatedScope scope, string action, QueryString queryString = null, string publicKey = null)
+            : this()
         {
             authenticatedScope = scope ?? throw new ArgumentNullException(nameof(scope));
             Action = action;
@@ -93,6 +109,7 @@ namespace Unimake.MessageBroker.Client
         public void Dispose()
         {
             client.Dispose();
+            ServicePointManager.ServerCertificateValidationCallback -= certificateValidationCallback;
         }
 
         public async Task<HttpResponseMessage> GetAsync()
