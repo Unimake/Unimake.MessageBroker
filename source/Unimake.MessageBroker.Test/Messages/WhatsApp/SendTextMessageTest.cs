@@ -26,6 +26,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp
             var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
+                InstanceName = "<<instanceName>>",
                 Text = $"Olá! Eu sou uma mensagem de teste 🌜☠️.{Environment.NewLine} Aqui, eu estou em uma nova linha.",
                 To = new Primitives.Model.Recipient
                 {

@@ -8,8 +8,8 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Unimake.MessageBroker</PackageId>
 		<Title>Unimake.MessageBroker</Title>
-		<AssemblyVersion>2024.09.17.0934</AssemblyVersion>
-		<Version>20240917.0934.45</Version>
+		<AssemblyVersion>2024.09.25.2148</AssemblyVersion>
+		<Version>20240925.2148.37</Version>
 		<Company>Unimake Software</Company>
 		<Authors>Unimake Software</Authors>
 		<Copyright>$(Authors) $([System.DateTime]::Now.Year) ©</Copyright>

@@ -138,10 +138,19 @@ namespace Unimake.MessageBroker.Services
 
         public async Task<MessageResponse> SendTextMessageAsync(IMessage message, AuthenticatedScope authenticatedScope)
         {
+            var instanceName = (message is Message msg) ? $"/{msg.InstanceName}" : string.Empty;
+
+            if(message.MessagingService == MessagingService.WhatsApp &&
+                string.IsNullOrWhiteSpace(instanceName))
+            {
+                throw new ArgumentException($"A propriedade {nameof(msg.InstanceName)} deve ser informada para o serviço WhatsApp.");
+            }
+
             message.MessagingService = MessagingService;
-            var apiClient = new APIClient(authenticatedScope, $"Messages/Publish");
+            var apiClient = new APIClient(authenticatedScope, $"Messages/Publish{instanceName}");
             var response = await apiClient.PostAsync(message);
             var json = await response.Content.ReadAsStringAsync();
+
             System.Diagnostics.Debug.WriteLine(json);
 
             if(response.IsSuccessStatusCode)

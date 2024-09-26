@@ -97,7 +97,7 @@ namespace Unimake.MessageBroker.Client
             : this()
         {
             authenticatedScope = scope ?? throw new ArgumentNullException(nameof(scope));
-            Action = action;
+            Action = action.Trim('/');
             _queryString = queryString;
             PublicKey = publicKey;
         }
