@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageReference Include="Unimake.AuthServer" Version="20240624.1024.3" />
-    <PackageReference Include="Unimake.Cryptography" Version="20241009.2029.42" />
+    <PackageReference Include="Unimake.Cryptography" Version="20241016.1016.27" />
     <PackageReference Include="Unimake.MessageBroker.Primitives" Version="20240823.1520.28" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
