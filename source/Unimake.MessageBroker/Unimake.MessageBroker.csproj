@@ -8,8 +8,8 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Unimake.MessageBroker</PackageId>
 		<Title>Unimake.MessageBroker</Title>
-		<AssemblyVersion>2024.12.18.1740</AssemblyVersion>
-		<Version>20241218.1740.39</Version>
+		<AssemblyVersion>2025.01.31.1813</AssemblyVersion>
+		<Version>20250131.1813.25</Version>
 		<Company>Unimake Software</Company>
 		<Authors>Unimake Software</Authors>
 		<Copyright>$(Authors) $([System.DateTime]::Now.Year) ©</Copyright>
@@ -33,7 +33,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20250106.1604.51" />
-		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20241129.1403.53" />
+		<PackageReference Include="Unimake.AuthServer" Version="20250131.1813.25" />
+		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20250131.1813.25" />
 	</ItemGroup>
 </Project>
