@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
 {
-    public class BilletNotificationTest : TestBase
+    public class BilletNotificationTest(ITestOutputHelper output) : TestBase(output)
     {
         #region Private Methods
 
@@ -25,15 +25,6 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
         }
 
         #endregion Private Methods
-
-        #region Public Constructors
-
-        public BilletNotificationTest(ITestOutputHelper output)
-                    : base(output)
-        {
-        }
-
-        #endregion Public Constructors
 
         #region Public Methods
 

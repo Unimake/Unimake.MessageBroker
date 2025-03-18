@@ -34,23 +34,23 @@ namespace Unimake.MessageBroker.Client
         private APIClient()
         {
             ServicePointManager.Expect100Continue = false;
-            ServicePointManager.ServerCertificateValidationCallback += certificateValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback += CertificateValidationCallback;
         }
 
         #endregion Private Constructors
 
         #region Private Methods
 
-        private bool certificateValidationCallback(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslPolicyErrors) => true;
+        private bool CertificateValidationCallback(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslPolicyErrors) => true;
 
         private void EnsureAuthorization()
         {
-            client.DefaultRequestHeaders.Remove("Authorization");
+            _ = client.DefaultRequestHeaders.Remove("Authorization");
             client.DefaultRequestHeaders.Add("Authorization", $"{authenticatedScope.Type} {authenticatedScope.Token}");
 
             if(!string.IsNullOrEmpty(PublicKey))
             {
-                client.DefaultRequestHeaders.Remove("U-Public-Key");
+                _ = client.DefaultRequestHeaders.Remove("U-Public-Key");
                 client.DefaultRequestHeaders.Add("U-Public-Key", PublicKey);
             }
         }
@@ -61,10 +61,7 @@ namespace Unimake.MessageBroker.Client
             return await client.PostAsync(PrepareURI(), new StringContent(json, Encoding.UTF8, "application/json"));
         }
 
-        private string PrepareURI()
-        {
-            return $"{DebugStateObject?.AnotherServerUrl ?? $"https://unimake.app/umessenger/api/v1/"}{Action}{ToQueryString()}";
-        }
+        private string PrepareURI() => $"{DebugStateObject?.AnotherServerUrl ?? $"https://unimake.app/umessenger/api/v1/"}{Action}{ToQueryString()}";
 
         private string ToQueryString()
         {
@@ -87,7 +84,7 @@ namespace Unimake.MessageBroker.Client
         /// </summary>
         public string PublicKey { get; set; }
 
-        public QueryString QueryString { get => _queryString ?? (_queryString = new QueryString()); }
+        public QueryString QueryString => _queryString ?? (_queryString = new QueryString());
 
         #endregion Public Properties
 
@@ -109,7 +106,7 @@ namespace Unimake.MessageBroker.Client
         public void Dispose()
         {
             client.Dispose();
-            ServicePointManager.ServerCertificateValidationCallback -= certificateValidationCallback;
+            ServicePointManager.ServerCertificateValidationCallback -= CertificateValidationCallback;
         }
 
         public async Task<HttpResponseMessage> GetAsync()

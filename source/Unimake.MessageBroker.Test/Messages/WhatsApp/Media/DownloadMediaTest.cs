@@ -7,17 +7,8 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Media
 {
-    public class DownloadMediaTest : TestBase
+    public class DownloadMediaTest(ITestOutputHelper output) : TestBase(output)
     {
-        #region Public Constructors
-
-        public DownloadMediaTest(ITestOutputHelper output)
-                    : base(output)
-        {
-        }
-
-        #endregion Public Constructors
-
         #region Public Methods
 
         [Fact]
@@ -42,25 +33,22 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Media
                     UseShellExecute = true
                 }
             };
-            process.Start();
+            _ = process.Start();
             File.Delete(fi.FullName);
         }
 
         [Fact]
-        public async Task DownloadMediaException()
-        {
-            await Assert.ThrowsAsync<Exception>(async () =>
-            {
-                using var scope = await CreateAuthenticatedScopeAsync();
-                var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
-                var response = await service.DownloadMediaAsync(new DownloadMedia
-                {
-                    MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,
-                    MediaId = "aaaaabbbbb00000",
-                    Testing = true
-                }, scope);
-            });
-        }
+        public async Task DownloadMediaException() => await Assert.ThrowsAsync<Exception>(async () =>
+                                                                       {
+                                                                           using var scope = await CreateAuthenticatedScopeAsync();
+                                                                           var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
+                                                                           var response = await service.DownloadMediaAsync(new DownloadMedia
+                                                                           {
+                                                                               MessagingService = Primitives.Enumerations.MessagingService.WhatsApp,
+                                                                               MediaId = "aaaaabbbbb00000",
+                                                                               Testing = true
+                                                                           }, scope);
+                                                                       });
 
         #endregion Public Methods
     }

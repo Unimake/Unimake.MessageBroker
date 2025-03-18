@@ -29,14 +29,11 @@ namespace Unimake.MessageBroker.Services.Security
         /// <param name="appId">Identificador da aplicação</param>
         /// <param name="secret">Segredo</param>
         /// <returns></returns>
-        public AuthenticatedScope Authenticate(string appId, string secret)
+        public AuthenticatedScope Authenticate(string appId, string secret) => new AuthenticatedScope(new AuthenticationToken
         {
-            return new AuthenticatedScope(new AuthenticationToken
-            {
-                AppId = appId,
-                Secret = secret
-            });
-        }
+            AppId = appId,
+            Secret = secret
+        });
 
         /// <inheritdoc cref="IAuthenticationService.AuthenticateAsync(AuthenticationToken)"/>
         [ComVisible(false)]

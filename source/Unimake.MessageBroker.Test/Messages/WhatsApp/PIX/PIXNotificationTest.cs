@@ -7,7 +7,7 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
 {
-    public class PIXNotificationTest : TestBase
+    public class PIXNotificationTest(ITestOutputHelper output) : TestBase(output)
     {
         #region Private Methods
 
@@ -25,15 +25,6 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
         }
 
         #endregion Private Methods
-
-        #region Public Constructors
-
-        public PIXNotificationTest(ITestOutputHelper output)
-                    : base(output)
-        {
-        }
-
-        #endregion Public Constructors
 
         #region Public Methods
 

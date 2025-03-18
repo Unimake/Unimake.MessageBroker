@@ -36,6 +36,12 @@ namespace Unimake.MessageBroker.Test.Abstractions
 
         #endregion Protected Fields
 
+        #region Protected Properties
+
+        protected static string InstanceName => "<<DEFINIR_INSTANCE_NAME>>";
+
+        #endregion Protected Properties
+
         #region Protected Methods
 
         protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
@@ -45,19 +51,17 @@ namespace Unimake.MessageBroker.Test.Abstractions
                 Secret = "<<Secret>>"
             });
 
-        protected static void StartServerDebugMode()
-        {
+        protected static void StartServerDebugMode() =>
 #if DEBUG_UNIMAKE
-            debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
-            {
-                AuthServerUrl = "https://auth.sandbox.unimake.software/api/auth/",
+           debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
+           {
+               AuthServerUrl = "https://auth.sandbox.unimake.software/api/auth/",
                 AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/"
-            });
+           });
 
 #else
             debugScope = null;
 #endif
-        }
 
         #endregion Protected Methods
 

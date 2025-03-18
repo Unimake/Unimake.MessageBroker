@@ -6,17 +6,8 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.BugFix
 {
-    public class InstanceNameMustHaveItsValueSetExcpetions : TestBase
+    public class InstanceNameMustHaveItsValueSetExceptions(ITestOutputHelper output) : TestBase(output)
     {
-        #region Public Constructors
-
-        public InstanceNameMustHaveItsValueSetExcpetions(ITestOutputHelper output) 
-            : base(output)
-        {
-        }
-
-        #endregion Public Constructors
-
         #region Public Methods
 
         [Fact]
@@ -26,7 +17,7 @@ namespace Unimake.MessageBroker.Test.BugFix
             var service = new MessageService(Primitives.Enumerations.MessagingService.Discord);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
-                MultiLineText = new List<string> { "teste" },
+                MultiLineText = ["teste"],
                 To = new Primitives.Model.Recipient
                 {
                     Destination = "<<DISCORD WEBHOOK>>",

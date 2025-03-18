@@ -6,16 +6,8 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.Messages.WhatsApp
 {
-    public class SendAlertTest : TestBase
+    public class SendAlertTest(ITestOutputHelper output) : TestBase(output)
     {
-        #region Public Constructors
-
-        public SendAlertTest(ITestOutputHelper output)
-            : base(output)
-        {
-        }
-
-        #endregion Public Constructors
 
         #region Public Methods
 
@@ -28,7 +20,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp
             {
                 Testing = true,
                 Text = "Ao infinito e além. 🚀",
-                To = "5544991848774",
+                To = "<<DESTINATION>>",
                 Title = "Unimake Buzz"
             }, scope);
 
@@ -36,5 +28,6 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp
         }
 
         #endregion Public Methods
+
     }
 }

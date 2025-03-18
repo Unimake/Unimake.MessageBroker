@@ -6,17 +6,8 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.BugFix
 {
-    public class Bug157182 : TestBase
+    public class Bug157182(ITestOutputHelper output) : TestBase(output)
     {
-        #region Public Constructors
-
-        public Bug157182(ITestOutputHelper output)
-            : base(output)
-        {
-        }
-
-        #endregion Public Constructors
-
         #region Public Methods
 
         [Fact]
@@ -33,7 +24,7 @@ namespace Unimake.MessageBroker.Test.BugFix
             };
 
             var messageService = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
-            await messageService.SendAlertAsync(alertNotication, scope);
+            _ = await messageService.SendAlertAsync(alertNotication, scope);
         }
 
         #endregion Public Methods

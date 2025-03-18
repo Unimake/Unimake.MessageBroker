@@ -6,17 +6,8 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.Messages.Discord
 {
-    public class SendTextMessageTest : TestBase
+    public class SendTextMessageTest(ITestOutputHelper output) : TestBase(output)
     {
-        #region Public Constructors
-
-        public SendTextMessageTest(ITestOutputHelper output)
-            : base(output)
-        {
-        }
-
-        #endregion Public Constructors
-
         #region Public Methods
 
         [Fact]
@@ -26,12 +17,12 @@ namespace Unimake.MessageBroker.Test.Messages.Discord
             var service = new MessageService(Primitives.Enumerations.MessagingService.Discord);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
-                MultiLineText = new List<string>
-                {
+                MultiLineText =
+                [
                     "Olá! Eu sou uma mensagem de testes 🌜☠️",
                     "Eu vim do pacote GITHUB",
                     "Eu fui testado com múltiplas linhas"
-                },
+                ],
                 To = new Primitives.Model.Recipient
                 {
                     Destination = "<<Destination>>"
