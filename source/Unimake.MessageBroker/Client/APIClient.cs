@@ -17,7 +17,7 @@ namespace Unimake.MessageBroker.Client
 
         private readonly AuthenticatedScope authenticatedScope;
 
-        private readonly HttpClient client = new HttpClient();
+        private readonly HttpClient client;
 
         private QueryString _queryString;
 
@@ -35,6 +35,13 @@ namespace Unimake.MessageBroker.Client
         {
             ServicePointManager.Expect100Continue = false;
             ServicePointManager.ServerCertificateValidationCallback += CertificateValidationCallback;
+
+            client = new HttpClient
+            {
+#if DEBUG_UNIMAKE
+                Timeout = TimeSpan.FromMinutes(20)
+#endif
+            };
         }
 
         #endregion Private Constructors

@@ -47,8 +47,13 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp
                 Files = [
                     new UploadFile
                     {
-                        Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\erro_osmair.png")),
-                        Caption = "Aconteceu este erro no Osmair"
+                        Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\imagem.png")),
+                        Caption = "Veja esta imagem"
+                    },
+                    new UploadFile
+                    {
+                        Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\arquivo.pdf")),
+                        Caption = "Veja este arquivo"
                     }]
             }, scope);
 
