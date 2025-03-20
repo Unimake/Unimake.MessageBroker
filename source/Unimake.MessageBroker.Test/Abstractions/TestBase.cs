@@ -32,13 +32,13 @@ namespace Unimake.MessageBroker.Test.Abstractions
 
         #region Protected Fields
 
-        protected const string PublicKey = "dDd3IXolQypGLUphTmRSZ1VqWG4ycjV1OHgvQT9EKEc=";
+        protected readonly string PublicKey = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(PublicKey)}");
 
         #endregion Protected Fields
 
         #region Protected Properties
 
-        protected static string InstanceName => "<<DEFINIR_INSTANCE_NAME>>";
+        protected static string InstanceName => Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(InstanceName)}");
 
         #endregion Protected Properties
 
@@ -47,8 +47,8 @@ namespace Unimake.MessageBroker.Test.Abstractions
         protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
             await new AuthenticationService().AuthenticateAsync(new AuthenticationToken
             {
-                AppId = "<<AppId>>",
-                Secret = "<<Secret>>"
+                AppId = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(AuthenticationToken.AppId)}"),
+                Secret = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(AuthenticationToken.Secret)}")
             });
 
         protected static void StartServerDebugMode() =>
@@ -56,7 +56,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
            debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
            {
                AuthServerUrl = "https://auth.sandbox.unimake.software/api/auth/",
-                AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/"
+               AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/"
            });
 
 #else
