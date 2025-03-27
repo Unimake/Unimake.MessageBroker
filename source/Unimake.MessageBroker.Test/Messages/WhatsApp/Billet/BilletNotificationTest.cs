@@ -1,4 +1,4 @@
-using EBank.Solutions.Primitives.Security;
+﻿using EBank.Solutions.Primitives.Security;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
 using Unimake.MessageBroker.Services;
 using Unimake.MessageBroker.Test.Abstractions;
@@ -19,7 +19,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
                     ("billet", boletoId)
                 };
 
-            var linkSigned = LinkSigner.SignLink("unimake", "billet", claims, PublicKey);
+            var linkSigned = LinkSigner.SignLink("unimake", "billet", claims, "123456");
 
             return linkSigned;
         }

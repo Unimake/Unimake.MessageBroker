@@ -1,4 +1,4 @@
-using EBank.Solutions.Primitives.Security;
+﻿using EBank.Solutions.Primitives.Security;
 using Unimake.MessageBroker.Primitives.Model.Notifications;
 using Unimake.MessageBroker.Services;
 using Unimake.MessageBroker.Test.Abstractions;
@@ -19,7 +19,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
                     ("qrCode", qrCode)
                 };
 
-            var linkSigned = LinkSigner.SignLink("unimake", "PIX", claims, PublicKey);
+            var linkSigned = LinkSigner.SignLink("unimake", "PIX", claims, "123456");
 
             return linkSigned;
         }
