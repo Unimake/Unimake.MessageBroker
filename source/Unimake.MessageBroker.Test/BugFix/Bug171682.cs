@@ -12,10 +12,10 @@ using Xunit.Abstractions;
 
 namespace Unimake.MessageBroker.Test.BugFix
 {
-    public class Bug171786(ITestOutputHelper output) : TestBase(output)
+    public class Bug171682(ITestOutputHelper output) : TestBase(output)
     {
         [Fact]
-        [Trait("bug", "171786")]
+        [Trait("bug", "171682")]
         public async Task FixItAsync()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
@@ -33,6 +33,35 @@ namespace Unimake.MessageBroker.Test.BugFix
                     {
                         Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\imagem_1.png")),
                         Caption = "Veja esta imagem"
+                    },
+                    new UploadFile
+                    {
+                        Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\imagem_2.png")),
+                        Caption = "Veja esta imagem"
+                    }]
+            }, scope);
+
+            DumpAsJson(response);
+        }
+
+        [Fact]
+        [Trait("bug", "171682")]
+        public async Task FixCaptionNullAsync()
+        {
+            using var scope = await CreateAuthenticatedScopeAsync();
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
+            var response = await service.SendTextMessageAsync(new TextMessage
+            {
+                InstanceName = InstanceName,
+                Text = $"Olá! Eu sou uma mensagem de teste 🌜☠️.{Environment.NewLine} Aqui, eu estou em uma nova linha.",
+                To = new Primitives.Model.Recipient
+                {
+                    Destination = "5544991285862"
+                },
+                Files = [
+                    new UploadFile
+                    {
+                        Base64Content = Convert.ToBase64String(File.ReadAllBytes(@"D:\Temp\imagem_1.png"))
                     },
                     new UploadFile
                     {
