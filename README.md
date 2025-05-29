@@ -27,7 +27,8 @@
 <p>
     <em>Pacote auxiliar para criação do token de acesso</em>
     <br />
-    <a href="https:/www.nuget.org/packages/Unimake.AuthServer" target="_blank">https://www.nuget.org/packages/Unimake.AuthServer</a>
+    <a href="https://www.nuget.org/packages/Unimake.AuthServer/" target="_blank">https://www.nuget.org/packages/Unimake.AuthServer</a>
+    
 </p>
 
 :warning: Para utilizar os serviços, é necessário a criação de uma conta junto a Unimake para a obtenção dos tokens de acesso e as chaves da aplicação.
