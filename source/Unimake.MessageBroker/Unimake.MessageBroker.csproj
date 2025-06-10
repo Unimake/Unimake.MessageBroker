@@ -8,13 +8,13 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Unimake.MessageBroker</PackageId>
 		<Title>Unimake.MessageBroker</Title>
-		<AssemblyVersion>2025.03.29.1108</AssemblyVersion>
-		<Version>20250329.1108.08</Version>
+		<AssemblyVersion>2025.06.10.1015</AssemblyVersion>
+		<Version>20250610.1015.36</Version>
 		<Company>Unimake Software</Company>
 		<Authors>Unimake Software</Authors>
-		<Copyright>$(Authors) $([System.DateTime]::Now.Year) ©</Copyright>
+		<Copyright>$(Authors) $([System.DateTime]::Now.Year) ï¿½</Copyright>
 		<Product>Unimake.MessageBroker</Product>
-		<Description>Pacote de envio de mensagens, SNS e notificações via WhatsApp, Messenger, e-mail. Entre outros serviços de mensagens.</Description>
+		<Description>Pacote de envio de mensagens, SNS e notificaï¿½ï¿½es via WhatsApp, Messenger, e-mail. Entre outros serviï¿½os de mensagens.</Description>
 		<PackageProjectUrl>https://unimake.app/umessenger</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Unimake/Unimake.MessageBroker</RepositoryUrl>
 		<PackageTags>Unimake;MessageBroker;Message;SNS;Broker;WhatsApp;Messenger;Direct</PackageTags>
@@ -33,7 +33,7 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Unimake.AuthServer" Version="20250131.1813.25" />
+		<PackageReference Include="Unimake.AuthServer" Version="20250609.1944.36" />
 		<PackageReference Include="Unimake.MessageBroker.Primitives" Version="20250320.1440.4" />
 	</ItemGroup>
 </Project>
