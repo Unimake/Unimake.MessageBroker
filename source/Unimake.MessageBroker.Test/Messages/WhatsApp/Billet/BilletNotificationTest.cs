@@ -32,7 +32,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
         public async Task NotifyBillet()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp, PublicKey);
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp, DebugScope.GetState().PublicKey);
             var linkSigned = SignLink(123456);
             var response = await service.NotifyBilletAsync(new BilletNotification
             {
@@ -44,7 +44,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.Billet
                 Description = "Mensalidade R$ 250,00",
                 DueDate = "10/12/2023",
                 QueryString = linkSigned,
-                To = "5511111111112",
+                To = DebugScope.GetState().ToPhoneDestination,
                 Value = "R$ 250,00",
                 Testing = false
             }, scope);

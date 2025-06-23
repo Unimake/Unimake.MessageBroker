@@ -22,12 +22,9 @@ namespace Unimake.MessageBroker.Test.BugFix
             var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
-                InstanceName = InstanceName,
+                InstanceName = DebugScope.GetState().InstanceName,
                 Text = $"Olá! Eu sou uma mensagem de teste 🌜☠️.{Environment.NewLine} Aqui, eu estou em uma nova linha.",
-                To = new Primitives.Model.Recipient
-                {
-                    Destination = "5544991285862"
-                },
+                To = DebugScope.GetState().ToPhoneDestination,
                 Files = [
                     new UploadFile
                     {
@@ -52,12 +49,9 @@ namespace Unimake.MessageBroker.Test.BugFix
             var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
             var response = await service.SendTextMessageAsync(new TextMessage
             {
-                InstanceName = InstanceName,
+                InstanceName = DebugScope.GetState().InstanceName,
                 Text = $"Olá! Eu sou uma mensagem de teste 🌜☠️.{Environment.NewLine} Aqui, eu estou em uma nova linha.",
-                To = new Primitives.Model.Recipient
-                {
-                    Destination = "5544991285862"
-                },
+                To = DebugScope.GetState().ToPhoneDestination,
                 Files = [
                     new UploadFile
                     {

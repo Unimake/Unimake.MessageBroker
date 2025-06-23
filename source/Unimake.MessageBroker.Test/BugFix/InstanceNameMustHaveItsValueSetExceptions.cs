@@ -18,10 +18,7 @@ namespace Unimake.MessageBroker.Test.BugFix
             var response = await service.SendTextMessageAsync(new TextMessage
             {
                 MultiLineText = ["teste"],
-                To = new Primitives.Model.Recipient
-                {
-                    Destination = "<<DISCORD WEBHOOK>>",
-                }
+                To = DebugScope.GetState().ToDiscordDestination,
             }, scope);
         }
 

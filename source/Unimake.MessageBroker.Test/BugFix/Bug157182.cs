@@ -19,11 +19,11 @@ namespace Unimake.MessageBroker.Test.BugFix
             {
                 Testing = false,
                 Text = "Mensagem de erro.",
-                To = "5544991848774",
+                To = DebugScope.GetState().ToPhoneDestination,
                 Title = "UNINFE - Erro no envio documentos eletrônicos"
             };
 
-            var messageService = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp);
+            var messageService = new MessageService(DebugScope.GetState().InstanceName, Primitives.Enumerations.MessagingService.WhatsApp);
             _ = await messageService.SendAlertAsync(alertNotication, scope);
         }
 

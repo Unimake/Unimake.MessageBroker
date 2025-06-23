@@ -12,7 +12,6 @@ namespace Unimake.MessageBroker.Test.Abstractions
     {
         #region Private Fields
 
-        private static DebugScope<DebugStateObject> debugScope;
         private readonly ITestOutputHelper output;
         private JsonSerializerSettings _jsonSettings;
 
@@ -32,45 +31,46 @@ namespace Unimake.MessageBroker.Test.Abstractions
 
         #region Protected Fields
 
-        protected readonly string PublicKey = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(PublicKey)}");
+
 
         #endregion Protected Fields
 
         #region Protected Properties
 
-        protected static string InstanceName => Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(InstanceName)}");
-
+        
         #endregion Protected Properties
 
         #region Protected Methods
 
-        protected static async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
+        protected async Task<AuthenticatedScope> CreateAuthenticatedScopeAsync() =>
             await new AuthenticationService().AuthenticateAsync(new AuthenticationToken
             {
-                AppId = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(AuthenticationToken.AppId)}"),
-                Secret = Environment.GetEnvironmentVariable($"{nameof(MessageBroker)}_{nameof(AuthenticationToken.Secret)}")
+                AppId = DebugScope.GetState().AppId,
+                Secret = DebugScope.GetState().Secret
             });
 
-        protected static void StartServerDebugMode() =>
-#if DEBUG_UNIMAKE
-           debugScope = new DebugScope<DebugStateObject>(new DebugStateObject
+        protected void StartDebugMode() =>
+           DebugScope = new DebugScope<DebugStateObject>(new DebugStateObject
            {
                AuthServerUrl = "https://auth.sandbox.unimake.software/api/auth/",
-               AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/"
+               AnotherServerUrl = "https://umessenger.sandbox.unimake.software/api/v1/",
+               State = new Scope.DebugState()
            });
 
-#else
-            debugScope = null;
-#endif
-
         #endregion Protected Methods
+
+        #region Public Fields
+
+        public DebugScope<DebugStateObject> DebugScope;
+
+        #endregion Public Fields
 
         #region Public Constructors
 
         public TestBase(ITestOutputHelper output)
         {
             this.output = output;
-            StartServerDebugMode();
+            StartDebugMode();
         }
 
         #endregion Public Constructors
@@ -79,7 +79,7 @@ namespace Unimake.MessageBroker.Test.Abstractions
 
         public void Dispose()
         {
-            debugScope?.Dispose();
+            DebugScope?.Dispose();
             GC.SuppressFinalize(this);
         }
 

@@ -32,7 +32,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
         public async Task NotifyPIX()
         {
             using var scope = await CreateAuthenticatedScopeAsync();
-            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp, PublicKey);
+            var service = new MessageService(Primitives.Enumerations.MessagingService.WhatsApp, DebugScope.GetState().PublicKey);
             var copyAndPaste = "00020101021226860014BR.GOV.BCB.PIX2564qrpix.bradesco.com.br/qr/v2/92cff44af-f9a2-4f84-94a6-bb2611a0ded5520406546546424354041.005802BR5925UNIMAKE SOFTWARE***6304F43E";
             var linkSigned = SignLink(copyAndPaste);
             var response = await service.NotifyPIXCollectionAsync(new PIXNotification
@@ -44,7 +44,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp.PIX
                 Description = "Melhor churrasqueiro do mundo 🍖",
                 IssuedDate = "31/12/2050",
                 QueryString = linkSigned,
-                To = "5544991848774",
+                To = DebugScope.GetState().ToPhoneDestination,
                 Value = "R$ 250,00",
                 Testing = true
             }, scope);

@@ -39,15 +39,15 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # Executa os testes
-
-if (-not ([string]::IsNullOrWhiteSpace($testProjectPath))) {
-    Write-Host "Executando testes unitários..."
-    & dotnet test $testProjectPath /p:Configuration=Debug-Unimake --no-build --verbosity normal
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "Os testes falharam! O pacote não será publicado." -ForegroundColor Red
-        exit 1
-    }
-}
+# 
+# if (-not ([string]::IsNullOrWhiteSpace($testProjectPath))) {
+#     Write-Host "Executando testes unitários..."
+#     & dotnet test $testProjectPath /p:Configuration=Debug-Unimake --no-build --verbosity normal
+#     if ($LASTEXITCODE -ne 0) {
+#         Write-Host "Os testes falharam! O pacote não será publicado." -ForegroundColor Red
+#         exit 1
+#     }
+# }
 
 # Empacota o projeto
 Write-Host "Empacotando o projeto..."

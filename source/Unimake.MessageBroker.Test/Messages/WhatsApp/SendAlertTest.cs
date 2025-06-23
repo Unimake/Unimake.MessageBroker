@@ -20,7 +20,7 @@ namespace Unimake.MessageBroker.Test.Messages.WhatsApp
             {
                 Testing = true,
                 Text = "Ao infinito e além. 🚀",
-                To = "<<DESTINATION>>",
+                To = DebugScope.GetState().ToPhoneDestination,
                 Title = "Unimake Buzz"
             }, scope);
 

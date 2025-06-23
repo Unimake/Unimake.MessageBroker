@@ -23,10 +23,7 @@ namespace Unimake.MessageBroker.Test.Messages.Discord
                     "Eu vim do pacote GITHUB",
                     "Eu fui testado com múltiplas linhas"
                 ],
-                To = new Primitives.Model.Recipient
-                {
-                    Destination = "<<Destination>>"
-                }
+                To = DebugScope.GetState().ToPhoneDestination,
             }, scope);
 
             DumpAsJson(response);
@@ -40,10 +37,7 @@ namespace Unimake.MessageBroker.Test.Messages.Discord
             var response = await service.SendTextMessageAsync(new TextMessage
             {
                 Text = "Olá! Eu sou uma mensagem de testes 🌜☠️. \n Eu vim do pacote GITHUB e fui testado com uma linha com quebras",
-                To = new Primitives.Model.Recipient
-                {
-                    Destination = "<<Destination>>"
-                }
+                To = DebugScope.GetState().ToPhoneDestination,
             }, scope);
 
             DumpAsJson(response);

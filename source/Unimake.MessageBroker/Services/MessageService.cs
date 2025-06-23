@@ -20,6 +20,8 @@ namespace Unimake.MessageBroker.Services
     {
         #region Public Properties
 
+        public string InstanceName { get; }
+
         public MessagingService MessagingService { get; private set; }
 
         public string PublicKey { get; private set; }
@@ -38,6 +40,9 @@ namespace Unimake.MessageBroker.Services
             : this(messagingService, "")
         {
         }
+
+        public MessageService(string instanceName, MessagingService messagingService)
+            : this(messagingService, "") => InstanceName = instanceName;
 
         #endregion Public Constructors
 
@@ -122,6 +127,7 @@ namespace Unimake.MessageBroker.Services
         {
             alert.MessagingService = MessagingService;
             var apiClient = new APIClient(authenticatedScope, $"Messages/SendAlert");
+            apiClient.QueryString.AddOrUpdateValue("instanceName",InstanceName);
             var response = await apiClient.PostAsync(alert);
             var json = await response.Content.ReadAsStringAsync();
             System.Diagnostics.Debug.WriteLine(json);
